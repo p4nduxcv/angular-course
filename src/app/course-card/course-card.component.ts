@@ -1,9 +1,10 @@
 import { Component, EventEmitter, input, OnInit, Output } from "@angular/core";
 import { Course } from "../model/course";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @Component({
   selector: "course-card",
-  imports: [],
+  imports: [BrowserAnimationsModule],
   templateUrl: "./course-card.component.html",
   styleUrl: "./course-card.component.css",
 })
@@ -18,5 +19,11 @@ export class CourseCardComponent implements OnInit {
 
   onCourseViewd() {
     this.courseSelected.emit(this.course().description);
+  }
+
+  cardClasses() {
+    return {
+      beginner: this.course().category == "BEGINNER",
+    };
   }
 }

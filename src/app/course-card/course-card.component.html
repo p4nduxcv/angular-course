@@ -1,9 +1,20 @@
-<div class="course-card">
+<div class="course-card" [ngClass]="cardClasses()">
   <div class="course-title">{{ index() }} {{ course().description }}</div>
+
+  @if(course().iconUrl) {
   <img width="300" alt="Angular Logo" src="{{ course().iconUrl }}" />
+  } @else {
+  <h2>No image available</h2>
+  }
 
   <div class="course-description">
     {{ course().longDescription }}
+  </div>
+
+  <div class="course-category">
+    @switch (course().category) { @case("BEGINNER") {
+    <div class="category">Beginner</div>
+    } }
   </div>
 
   <button (click)="onCourseViewd()">View Course</button>
