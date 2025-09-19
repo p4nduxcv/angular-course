@@ -6,10 +6,15 @@
 </div>
 
 <div class="courses">
+  @for (course of courses; track course.id; let index = $index; let count =
+  $count ) {
   <course-card
     (courseSelected)="onCourseSelected($event)"
-    [course]="coreCourse"
+    [course]="course"
+    [index]="index + 1"
+    [class.is-first]
   ></course-card>
-  <course-card [course]="rxjsCourse"></course-card>
-  <course-card [course]="ngrxCourse"></course-card>
+  } @empty {
+  <h1>No courses Found</h1>
+  }
 </div>

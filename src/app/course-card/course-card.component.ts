@@ -9,6 +9,7 @@ import { Course } from "../model/course";
 })
 export class CourseCardComponent implements OnInit {
   course = input<Course>();
+  index = input();
   @Output() courseSelected = new EventEmitter<string>();
 
   constructor() {}
