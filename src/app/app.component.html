@@ -5,10 +5,11 @@
   />
 </div>
 
-<div class="courses">
-  @for (course of courses; track course.id; let index = $index; let count =
+<div class="courses" *ngIf="courses[0] as course">
+  <!-- @for (course of courses; track course.id; let index = $index; let count =
   $count ) {
   <course-card
+    #cardRef
     (courseSelected)="onCourseSelected($event)"
     [course]="course"
     [index]="index + 1"
@@ -16,5 +17,9 @@
   ></course-card>
   } @empty {
   <h1>No courses Found</h1>
-  }
+  } -->
+  <course-card
+    (courseSelected)="onCourseSelected($event)"
+    [course]="course"
+  ></course-card>
 </div>

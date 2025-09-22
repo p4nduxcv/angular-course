@@ -13,6 +13,8 @@ export class CourseCardComponent implements OnInit {
   index = input();
   @Output() courseSelected = new EventEmitter<string>();
 
+  startDate = new Date(2000, 0, 1);
+
   constructor() {}
 
   ngOnInit(): void {}
